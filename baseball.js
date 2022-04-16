@@ -46,42 +46,30 @@
  * @param {string[]} ops
  * @return {number}
  */
-// const ops = ['5', '2', 'C', 'D', '+'];
-const ops = ["5","-2",'4',"C","D","9","+","+"];
+let ops;
+ops = ['5', '2', 'C', 'D', '+'];
+// ops = ["5","-2",'4',"C","D","9","+","+"];
+// ops = ['1'];
+const total_score_arr = [];
+let total_score = 0;
 var calPoints = function(ops) {
-  let score = 0;
-  let real_score = 0;
-  let doubled = 0;
-  let prev_score = [];
-  let actual_score = [];
   for (let i = 0; i < ops.length; i++) {
-    console.log('ops is: ', ops[i]);
     if (!isNaN(parseInt(ops[i]))) {
-      console.log('ops: ', parseInt(ops[i]));
-      prev_score.push(parseInt(ops[i]));
-    }
-    if (ops[i] == 'D') {
-      doubled = prev_score * 2;
-      prev_score.push(doubled);
-    }
-    if (ops[i] == 'C') {
-      console.log('got popped: ', ops[i]);
-      prev_score.pop();
-    }
-    if (ops[i] == '+') {
-      for (let i = 0; i < prev_score.length; i++) {
-        score += prev_score[i];
-        actual_score.push(prev_score[i]);
-      }
-      actual_score.push(score);
+      total_score_arr.push(parseInt(ops[i]));
+    } else if (ops[i] == 'C') {
+      total_score_arr.pop(total_score_arr[total_score_arr.length - 1]);
+    } else if (ops[i] == 'D') {
+      total_score_arr.push(parseInt(total_score_arr[total_score_arr.length - 1] * 2));
+    } else {
+      // We add the last two elements in the array
+      total_score_arr.push(parseInt(total_score_arr[total_score_arr.length - 1] + parseInt(total_score_arr[total_score_arr.length - 2])));
     }
   }
-  for (let i = 0; i < actual_score.length; i++) {
-    real_score += actual_score[i];
+  console.log('total_score_arr: ', total_score_arr);
+  for (let i = 0; i < total_score_arr.length; i++) {
+    total_score += total_score_arr[i];
   }
-  console.log('score: ', real_score);
-  console.log('prev_score: ', prev_score);
-  console.log('actual_Score: ', actual_score);
+  console.log('total score for the game: ', total_score);
 };
 
 calPoints(ops);
