@@ -19,10 +19,11 @@
  * @return {boolean}
  */
  var hasCycle = function(head) {
-  let temp;
-  temp = head;
-  while (temp !== null && temp.next !== null) {
-    if (temp.next == head.next) {
+  let fast= head;
+  while (fast && fast.next !== null) {
+    head = head.next;
+    fast = fast.next.next;
+    if (fast === head) {
       return true;
     }
   }
