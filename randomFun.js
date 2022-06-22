@@ -24,3 +24,4 @@ const checkOddOrEven = () => {
   }
 }
 console.log(checkOddOrEven());
+// testin test
