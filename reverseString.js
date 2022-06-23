@@ -20,7 +20,7 @@ var reverseString = function(s) {
     s[right--] = temp;
   }
   return s;
-  l/*
+  /*
   The below code will give me an reversed array on my local machine...
   but does not look reversed according to the LeetCode output...Why?
   let temp = [];
