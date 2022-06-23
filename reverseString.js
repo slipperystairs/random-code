@@ -28,6 +28,8 @@ var reverseString = function(s) {
     temp.push(s[i]);
   }
   return temp;*/ 
+  // This will also pass
+  // return s.reverse(); ... don't return anything is says not to... so dumb
 };
 
 console.log(reverseString(['h', 'e', 'l', 'l', 'o']));
