@@ -20,13 +20,16 @@ var reverseString = function(s) {
     s[right--] = temp;
   }
   return s;
-  /*This will reverse the array but this is not what they want..
-    for (let i = s.length - 1; i >= 0; i--) {
-      if (i == 0) {
-        return s;
-      }
-    }
-  */
+  /*
+  The below code will give me an reversed array on my local machine...
+  but does not look reversed according to the LeetCode output...Why?
+  let temp = [];
+  for (let i = s.length - 1; i >= 0; i--) {
+    temp.push(s[i]);
+  }
+  return temp;*/ 
+  // This will also pass
+  // return s.reverse(); ... don't return anything is says not to... so dumb
 };
 
 console.log(reverseString(['h', 'e', 'l', 'l', 'o']));
