@@ -50,8 +50,8 @@ const objectFun = () => {
     }
   });
 }
-
 objectFun();
+
 let sort_by = (field_name, reverse, initial) => {
   let key = initial ? function (x) { return initial(x[field_name]); } : function (x) { return x[field_name]; }
   reverse = !reverse ? 1 : -1;
