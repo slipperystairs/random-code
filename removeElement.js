@@ -18,13 +18,12 @@
  * @return {number}
  */
 let removeElement = (nums, val) => {
-  /* This loop is not a solution..
-  for (let i = 0; i < nums.length; i++) {
+  for (let i = nums.length - 1; i >= 0; i--) {
     if (nums.includes(val)) {
       console.log('nums[i]: ', nums[i]);
       nums.splice(nums.indexOf(val), 1);
     }
-  }*/
+  }
   // This is a solution
   /*while (nums.includes(val)) {
     nums.splice(nums.indexOf(val), 1);
@@ -32,14 +31,15 @@ let removeElement = (nums, val) => {
   // We can use two pointers i and j.
   // As long as nums[j] != val, we copy nums[j] into nums[i] and increment both indexes at the same time.
   // Repeat until j reaches the end of the array and the new length is i.
-  let i = 0;
+  /* let i = 0;
   for (let j = 0; j < nums.length; j++) {
     if (nums[j] != val) {
       nums [i] = nums[j];
       i++;
     }
-  }
-  return i;
+  }*/
+  // return i;
+  return nums.length;
 };
 
 let main = () => {
