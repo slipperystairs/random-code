@@ -8,27 +8,31 @@ const main = async () => {
   const arr = [];
   let brackets = null;
   let sentences = null;
-  let b_letters = null;
+  let s_letters = null;
   let result = null;
 
   try {
     for (const line of lines) {
       if ((result = /([^\.\?\!]*)[\.\?\!]/.exec(line))) {
         sentences = result[0];
-        const words = sentences.split(' ');
+        const words = sentences.split('.');
         let found = false;
         let idx = 0;
-        console.log('words: ', words);
         while (!found && idx < words.length) {
-          console.log('inside the while looop');
-          if (/^a/.test(words[idx])) {
+          if (/^s?/.test(words[idx])) {
             found = true;
-            b_letters = words[idx];
-            console.log('b_letters: ', b_letters);
+            console.log('words: ', words[idx]);
+            s_letters = words[idx];
           }
+          idx++;
         }
+      } else if (s_letters && (result = /\[(.*?)\]/.exec(line))) {
+        brackets = result[0];
+      } else if (s_letters) {
+        arr.push({ s_letters, sentences, brackets });
       }
     }
+    console.log('arr: ', arr);
   } catch (e) {
     console.log('Err in main: ', e);
   }
