@@ -14,7 +14,6 @@
  * @return {string}
  */
 const longestCommonPrefix = (strs) => {
-
 };
 
 // Algorithm
