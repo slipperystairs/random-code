@@ -5,27 +5,51 @@
 // Input: strs = ['flower', 'flow', 'flight']
 // Output: "fl"
 
-// Algorithm
-// 1. Sort the array of strings in alphabetical order.
-// 2. Compare the characters in the first and last strings in the array.
-// 3. If they are the same, then push them onto the result array.
-// 4. Else, stop the comparison - result contains the longest common prefix
-//    among the strings in the array.
-
+// Algorithm approach: Horizontal scanning
+// To employ this idea, the algorithm iterates through the strings [S1…Sn][S_1 \ldots S_n][S1​…Sn​],
+// finding at each iteration i the longest common prefix of strings LCP(S_1...S_n) When LCP(S_1...S_n)
+// is an empty string, the algorithm ends. Otherwise after n iterations, the algorithm returns LCP(S_1...S_n)
 /**
  * @param {string[]} strs
  * @return {string}
  */
 const longestCommonPrefix = (strs) => {
-  for (let i = 0; i <= strs.length; i++) {
-    for (let j = 1; j <= strs.length; j++) {
-      if (strs[i] == strs[j]) {
-        console.log('I think we found something');
-        console.log('strs[i]: ', strs[i], ' strs[j]: ', strs[j]);
-      }
-    }
-  }
+
 };
 
-longestCommonPrefix(['flower', 'flow', 'flight']);
-longestCommonPrefix(['dog', 'racecar', 'car']);
+// Algorithm
+// 1. First we will find the shortest string and its length. [x]
+// 2. Secondly, we will take the first string and match its each character one by one with all the other strings.
+// 3. As soon as we encounter a character which does not match, we will break out of the loop.
+// This approach does not handle when an array with and empty string is passed to our function. Or when there is 
+// only one element in the array that is a single letter.
+/* const longestCommonPrefix = (strs) => {
+  let longest_common_prefix = '';
+  console.log('length: ', strs.length);
+  if (strs == null || strs.length == 0) {
+    console.log('I think I should fall here');
+    return longest_common_prefix;
+  }
+  let shortest_string = strs[0].length;
+  for (const s of strs) {
+    shortest_string = Math.min(shortest_string, s.length);
+  }
+  for (let i = 0; i < shortest_string; i++) {
+    let current = strs[0].charAt(i);
+    if (current == '') {
+      return '';
+    }
+    // Check if the character is found in all other strings or not.
+    for (const s of strs) {
+      if (s.charAt(i) !== current) {
+        return longest_common_prefix;
+      } 
+    }
+    longest_common_prefix += current;
+  }
+  return longest_common_prefix.toString();
+}; */
+
+console.log('first call: ', longestCommonPrefix(['flower', 'flow', 'flight']));
+console.log('second call: ', longestCommonPrefix(['dog', 'racecar', 'car']));
+console.log('third call: ', longestCommonPrefix(['']));
