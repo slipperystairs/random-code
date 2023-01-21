@@ -24,9 +24,7 @@ const longestCommonPrefix = (strs) => {
 // only one element in the array that is a single letter.
 /* const longestCommonPrefix = (strs) => {
   let longest_common_prefix = '';
-  console.log('length: ', strs.length);
   if (strs == null || strs.length == 0) {
-    console.log('I think I should fall here');
     return longest_common_prefix;
   }
   let shortest_string = strs[0].length;
@@ -35,9 +33,6 @@ const longestCommonPrefix = (strs) => {
   }
   for (let i = 0; i < shortest_string; i++) {
     let current = strs[0].charAt(i);
-    if (current == '') {
-      return '';
-    }
     // Check if the character is found in all other strings or not.
     for (const s of strs) {
       if (s.charAt(i) !== current) {
@@ -46,7 +41,7 @@ const longestCommonPrefix = (strs) => {
     }
     longest_common_prefix += current;
   }
-  return longest_common_prefix.toString();
+  return longest_common_prefix;
 }; */
 
 console.log('first call: ', longestCommonPrefix(['flower', 'flow', 'flight']));
