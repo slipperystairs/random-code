@@ -59,4 +59,4 @@ const longestCommonPrefix = (strs) => {
 
 console.log('first call: ', longestCommonPrefix(['flower', 'flow', 'flight']));
 console.log('second call: ', longestCommonPrefix(['dog', 'racecar', 'car']));
-// console.log('third call: ', longestCommonPrefix(['']));
+console.log('third call: ', longestCommonPrefix(['']));
