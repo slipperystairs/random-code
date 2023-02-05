@@ -17,4 +17,14 @@
  * @return {boolean}
  */
 const isPalindrome = (s) => {
+  if (s.length == 0) {
+    return true;
+  }
+  let stripped_lower = s.toLowerCase().replace(/[^0-9a-z]/g, '');
+  stripped_lower = (stripped_lower == stripped_lower.split('').reverse().join(''));
+  return stripped_lower;
 };
+
+console.log(isPalindrome('A man, a plan, a canal: Panama'));
+console.log(isPalindrome('race a car'));
+console.log(isPalindrome(' '));
