@@ -22,8 +22,20 @@
   return true;
 };
 
-console.log(isPalindrome(121));
-console.log(isPalindrome(1221));
-console.log(isPalindrome(2202));
-console.log(isPalindrome(11));
-console.log(isPalindrome(391023));
+const isPalindromeSolution2 = (x) => {
+  // let flag = false;
+  let string = x.toString();
+  string = string === string.split('').reverse().join('');
+  return string;
+};
+
+// console.log(isPalindrome(121));
+// console.log(isPalindrome(1221));
+// console.log(isPalindrome(2202));
+// console.log(isPalindrome(11));
+
+console.log(isPalindromeSolution2(121));
+console.log(isPalindromeSolution2(1221));
+console.log(isPalindromeSolution2(2202));
+console.log(isPalindromeSolution2(11));
+console.log(isPalindromeSolution2(391023));
