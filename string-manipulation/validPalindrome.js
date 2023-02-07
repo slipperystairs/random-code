@@ -25,6 +25,10 @@ const isPalindrome = (s) => {
   return stripped_lower;
 };
 
+// Approach 2:
+// We can use a left and right pointer and compare each
+// its letter in the resulting string. Let's try to do this.
+
 console.log(isPalindrome('A man, a plan, a canal: Panama'));
 console.log(isPalindrome('race a car'));
 console.log(isPalindrome(' '));
