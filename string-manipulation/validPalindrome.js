@@ -28,6 +28,20 @@ const isPalindrome = (s) => {
 // Approach 2:
 // We can use a left and right pointer and compare each
 // letter in the string. Let's try to do this.
+const isPalindrome2 = (s) => {
+  let same = true;
+  const stripped = s.toLowerCase().replace(/[^0-9a-z]/g, '');
+  let right = stripped.length - 1;
+  let left = 0;
+  while (left <= stripped.length) {
+    if (stripped[left] !== stripped[right]) {
+      same = false;
+    }
+    right--;
+    left++;
+  }
+  return same;
+}
 
 // Approach 3:
 // Loop through the stripped string.
@@ -47,11 +61,19 @@ const isPalindrome3 = (s) => {
   return same;
 }
 
+console.log('First solution...')
 console.log(isPalindrome('lol a lol'));
 console.log(isPalindrome('A man, a plan, a canal: Panama'));
 console.log(isPalindrome('race a car'));
 console.log(isPalindrome(' '));
 
+console.log('Second solution...')
+console.log(isPalindrome2('lol a lol'));
+console.log(isPalindrome2('A man, a plan, a canal: Panama'));
+console.log(isPalindrome2('race a car'));
+console.log(isPalindrome2(' '));
+
+console.log('Third solution')
 console.log(isPalindrome3('lol a lol'));
 console.log(isPalindrome3('A man, a plan, a canal: Panama'));
 console.log(isPalindrome3('race a car'));
