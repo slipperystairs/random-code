@@ -27,8 +27,32 @@ const isPalindrome = (s) => {
 
 // Approach 2:
 // We can use a left and right pointer and compare each
-// its letter in the resulting string. Let's try to do this.
+// letter in the string. Let's try to do this.
 
+// Approach 3:
+// Loop through the stripped string.
+// Concatenate each character to a new string.
+// Compare the new string to the stripped string.
+// If they are not the same set our flag to false... Return the flag.
+const isPalindrome3 = (s) => {
+  let same = true;
+  const stripped = s.toLowerCase().replace(/[^0-9a-z]/g, '');
+  let new_string = '';
+  for (let i = stripped.length - 1; i >= 0; i--) {
+    new_string += stripped[i];
+  }
+  if (new_string !== stripped) {
+    same = false;
+  }
+  return same;
+}
+
+console.log(isPalindrome('lol a lol'));
 console.log(isPalindrome('A man, a plan, a canal: Panama'));
 console.log(isPalindrome('race a car'));
 console.log(isPalindrome(' '));
+
+console.log(isPalindrome3('lol a lol'));
+console.log(isPalindrome3('A man, a plan, a canal: Panama'));
+console.log(isPalindrome3('race a car'));
+console.log(isPalindrome3(' '));
