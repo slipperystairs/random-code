@@ -17,6 +17,32 @@ const firstPalindrome = (words) => {
   return '';
 };
 
-console.log(firstPalindrome(['abc', 'car', 'ada', 'racecar', 'cool']));
-console.log(firstPalindrome(['notapalindrome', 'racecar']));
-console.log(firstPalindrome(['def', 'ghi']));
+// Solution 2: Using a left and right pointer.
+const firstPalindrome2 = (words) => {
+  for (let i = 0; i < words.length; i++) {
+    if (isValid(words[i])) {
+      return words[i]
+    }
+  }
+  return '';
+};
+
+const isValid = (word) => {
+  let right = word.length - 1;
+  let left = 0;
+  let flag = true;
+  while (left <= word.length) {
+    if (word[left] !== word[right]) {
+      flag = false;
+    }
+    left++;
+    right--;
+  }
+  return flag;
+};
+
+console.log(firstPalindrome2(['abc', 'aba']))
+
+// console.log(firstPalindrome2(['abc', 'car', 'ada', 'racecar', 'cool']));
+// console.log(firstPalindrome2(['notapalindrome', 'racecar']));
+// console.log(firstPalindrome2(['def', 'ghi']));
