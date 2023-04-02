@@ -7,7 +7,9 @@
  * @param {string[]} words
  * @return {string}
 */
-// Solution 1.
+// Solution 1: Split on each letter of the word,
+// reverse the array that is return from the split method,
+// join the elements back together.
 const firstPalindrome = (words) => {
   for (const word of words) {
     if (word === word.split('').reverse().join('')) {
