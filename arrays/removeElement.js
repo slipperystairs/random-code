@@ -28,19 +28,23 @@ let removeElement = (nums, val) => {
   /*while (nums.includes(val)) {
     nums.splice(nums.indexOf(val), 1);
   }*/
-  // We can use two pointers i and j.
-  // As long as nums[j] != val, we copy nums[j] into nums[i] and increment both indexes at the same time.
-  // Repeat until j reaches the end of the array and the new length is i.
-  /* let i = 0;
-  for (let j = 0; j < nums.length; j++) {
-    if (nums[j] != val) {
-      nums [i] = nums[j];
-      i++;
-    }
-  }*/
-  // return i;
   return nums.length;
 };
+
+// WE can use two pointers i and j.
+// As long as num[j] != vale, we copy nums[j] into nums[i]
+// and increment both indexes at the same time.
+// Repeat until j reached the end of the array and the new length is i.
+const removeElement2 = (nums, val) => {
+  let i = 0;
+  for (j = 0; j < nums.length; j++) {
+    if (nums[j] != val) {
+      nums[i] = nums[j];
+      i++;
+    }
+  }
+  return i;
+}
 
 let main = () => {
   const result = removeElement([0,1,2,2,3,0,4,2], 2);
