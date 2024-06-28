@@ -15,11 +15,26 @@
 // Explanation: 2 does not exist in nums so return -1 
 
 /**
- * TODO: Look into binary search trees.
  * @param {number[]} nums
  * @param {number} target
  * @return {number}
  */
 var search = function(nums, target) {
+  let low = 0;
+  let high = nums.length;
+  while (low < high) {
+    const midpoint = Math.floor(low + (high - low) / 2);
+    console.log('midpoint: ', midpoint);
+    const value = nums[midpoint];
+    console.log('value: ', value);
     
+    if (value === target) {
+      return midpoint;
+    } else if (value > target) {
+      high = midpoint;
+    } else {
+      low = midpoint + 1;
+    }
+  }
+  return -1;
 };
