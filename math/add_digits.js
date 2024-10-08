@@ -35,6 +35,7 @@
 //   return parseInt(n);
 // };
 
+// O(n) complexity
 const addDigits2 = (num) => {
   const n = num.toString();
   let sum = 0;
@@ -47,6 +48,14 @@ const addDigits2 = (num) => {
     sum = sum + parseInt(n[i]);
   }
   return addDigits2(sum);
+};
+
+// O(1) complexity
+const addDigits = (num) => {
+  if (num == 0) {
+    return 0;
+  }
+  return 1 + (num - 1) % 9;
 };
 
 console.log(addDigits2(38));
