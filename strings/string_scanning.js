@@ -1,5 +1,6 @@
 function removeLastWhereClause(sql) {
   let depth = 0;
+  let new_query = sql;
   let i = sql.length - 1;
   let last_where_idx = -1;
   let in_quote = false;
@@ -45,20 +46,20 @@ function removeLastWhereClause(sql) {
   }
   
   // If a WHERE clause at the main query level was found
+  // Otherwise there was no WHERE clause found at the main query level
   if (last_where_idx !== -1) {
-    return sql.substring(0, last_where_idx).trim();
+    new_query = sql.substring(0, last_where_idx).trim();
   }
   
-  // No WHERE clause found at main query level
-  return sql;
+  return new_query;
 }
 
 // Test with a simple query without JOINs
-const simpleQuery = `SELECT id, name, email
+const sql = `SELECT id, name, email
 FROM users
 WHERE active = 1`;
 
-const result = removeLastWhereClause(simpleQuery);
+const result = removeLastWhereClause(sql);
 console.log(result);
 // Output: "SELECT id, name, email
 // FROM users"
