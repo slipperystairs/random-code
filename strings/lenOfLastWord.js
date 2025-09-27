@@ -18,16 +18,16 @@ var lengthOfLastWord = function(s) {
 };
 
 // The following code would also be a solution.
-/* var lengthOfLastWord = function(s) {
-  let len = 0;
-  for (let i = s.length - 1; i > -1; i--) {
-    if (s[i] != ' ') {
-      len++;
-    } else if (len > 0) {
-      return len;
-    }
-  }
-  return len;
-};*/
+// var lengthOfLastWord = function(s) {
+//   let len = 0;
+//   for (let i = s.length - 1; i > -1; i--) {
+//     if (s[i] != ' ') {
+//       len++;
+//     } else if (len > 0) {
+//       return len;
+//     }
+//   }
+//   return len;
+// };
 
 console.log(lengthOfLastWord('Hello World'));
